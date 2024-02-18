@@ -31,7 +31,7 @@ def show(file_name: str):
 def find(file_name: str, option:bool):
 
     show(file_name)
-    attr = input("Введите время в формате гггг-мм-дд: ")
+    attr = input("Введите дату в формате гггг-мм-дд: ")
     # attr = input("Введите заголовок для поиска: ")
     print()
     with open(file_name, "r", encoding="utf-8") as f:
