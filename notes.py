@@ -31,12 +31,14 @@ def show(file_name: str):
 def find(file_name: str, option:bool):
 
     show(file_name)
-
-    attr = input("Введите заголовок для поиска: ")
+    attr = input("Введите время в формате гггг-мм-дд: ")
+    # attr = input("Введите заголовок для поиска: ")
     print()
     with open(file_name, "r", encoding="utf-8") as f:
         data = f.readlines()
-        data = list(filter(lambda x: x.split(", ")[1] == attr, data))
+        # print(type(data))
+        # print(data)
+        data = list(filter(lambda x: x.split(" ")[3] == attr, data))
         x = list(zip(range(1, len(data)+1), data))
         for item in x:
             print(*item)
@@ -48,7 +50,7 @@ def find(file_name: str, option:bool):
                 
 
         else:
-            print("Заметки с таким заголовком не найдено")
+            print("Заметки с такой датой не найдено")
             print()
 
 
@@ -91,7 +93,7 @@ def main():
     while not flag_exit:
         print("1 - показать все записи")
         print("2 - добавить новую запись")
-        print("3 - искать по заголовку")
+        print("3 - искать по дате")
         print("4 - корректировать заметку")
         print("5 - удалить заметку")
         answer = input("Введите номер команды или 'x' для выхода:  ")
